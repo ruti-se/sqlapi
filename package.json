@@ -1,6 +1,6 @@
 {
     "name": "rutio-sqlapi",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "Async wrapper for some functions in mysql2",
     "main": "sqlapi.js",
     "author": "Lars Mats",
@@ -10,4 +10,3 @@
         "mysql2": "latest"
     }
   }
-  
