@@ -18,7 +18,6 @@ if (!process.env.DB_USER)
   throw {message:"DB_USER not set in environment"};
 if (!process.env.DB_PASSWORD)
   throw {mesage:"DB_PASSWORD not set in environment"};
-console.log(process.env.DB_PASSWORD);
 
 // MySQL
 var config = {
