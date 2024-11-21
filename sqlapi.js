@@ -26,6 +26,7 @@ var config = {
     database: process.env.DB_NAME,
     password: process.env.DB_PASSWORD,
     connectionLimit: 100,
+    debug: false,
 };
 if (process.env.DB_PORT)
   config.port = process.env.DB_PORT;
