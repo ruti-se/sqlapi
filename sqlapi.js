@@ -25,8 +25,6 @@ var config = {
     user:  process.env.DB_USER,
     database: process.env.DB_NAME,
     password: process.env.DB_PASSWORD,
-    connectionLimit: 100,
-    debug: false,
 };
 if (process.env.DB_PORT)
   config.port = process.env.DB_PORT;
@@ -37,14 +35,14 @@ const mysql = require( 'mysql2' );
 
 // Wrapping DB as promises
 function makeDb( config ) {
-  let pool = mysql.createPool( config );
+  const connection = mysql.createConnection( config );
   return {
     query( sql, args ) {
-      return util.promisify( pool.query )
-                 .call( pool, sql, args );
+      return util.promisify( connection.query )
+                 .call( connection, sql, args );
     },
     close() {
-      return util.promisify( pool.end ).call( pool );
+      return util.promisify( connection.end ).call( connection );
     }
   };
 }
